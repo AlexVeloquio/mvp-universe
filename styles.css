@@ -63,9 +63,23 @@ body {
     height: auto;
     z-index: -1;
     transform: translate(-50%, -50%);
-    object-fit: cover; /* Se adapta sin deformarse */
+    object-fit: cover;
+    pointer-events: none; /* Desactiva interacción */
 }
 
+/* Ocultar video en móviles */
+@media (max-width: 768px) {
+    .video-background video {
+        display: none !important;
+    }
+    
+    .video-background {
+        background-image: url('instalaciones/cancha.jpeg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: scroll;
+    }
+}
 /* Capa oscura encima del video */
 .video-overlay {
     position: absolute;
