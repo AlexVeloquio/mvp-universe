@@ -1,0 +1,2403 @@
+.custom-navbar {
+    background-color: #e64225 !important; /* Color naranja */
+}
+
+.navbar .nav-link {
+    color: #ffffff !important; /* Texto blanco */
+}
+
+
+.navbar .nav-link:hover {
+    color: #293686 !important; /* Texto azul al pasar el mouse */
+}
+
+.dropdown-menu{
+    background-color: #293686 !important; /* Color naranja */
+}
+
+.dropdown-item{
+    color: #ffffff !important;
+}
+
+.dropdown-item:hover {
+    color: #e64225 !important; /* Texto azul al pasar el mouse */
+}
+
+.seccion-principal {
+    background-color: #293686;
+    padding: 20px;
+}
+
+
+body {
+    padding-top: 70px;
+}
+
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;   /* Separación desde abajo */
+    right: 20px;    /* Separación desde la derecha */
+    z-index: 1000;  /* Para que esté por encima de todo */
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1); /* Efecto hover */
+}
+/* Contenedor del video */
+.video-background {
+    position: relative;
+    height: 100vh; /* Ocupa toda la pantalla */
+    overflow: hidden;
+    clip-path: url(#multipleOceanWaves); /* Aplica el clip-path */
+}
+
+.video-background video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+    transform: translate(-50%, -50%);
+    object-fit: cover; /* Se adapta sin deformarse */
+}
+
+/* Capa oscura encima del video */
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6); /* Oscurece el video */
+    z-index: 1;
+}
+
+/* Texto centrado encima */
+.video-content {
+    position: relative;
+    z-index: 2;
+    color: white;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+ .swiper-gallery{
+      width: 100%;
+      height: 320px;        /* 👈 cambia la altura según necesites */
+      overflow: hidden;
+}
+
+.swiper-gallery .swiper-wrapper {
+    transition-timing-function: linear !important;
+}
+
+.swiper-gallery .swiper-slide{
+      width: auto !important;
+      display: flex;
+      align-items: center;
+}
+
+.swiper-gallery .swiper-slide img{
+      height: 100%;
+      width: auto;
+      max-width: none;
+      display: block;
+}
+
+.btn-custom {
+    background-color: #e64225;
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(230, 66, 37, 0.4);
+    display: inline-block;
+    border: 2px solid transparent;
+}
+
+.btn-custom:hover {
+    background-color: transparent;
+    color: white;
+    border-color: white;
+    transform: translateY(-2px);
+}
+
+.mvp-section {
+position: relative;
+overflow: hidden;
+}
+
+.mvp-section::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+z-index: 0;
+}
+
+.mvp-content {
+position: relative;
+z-index: 1;
+}
+
+.mvp-title {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #1e3c72;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.mvp-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 400px;
+    height: 4px;
+    background: linear-gradient(100deg, #e64225, #2a5298);
+    border-radius: 2px;
+}
+
+.mvp-text {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 2rem;
+}
+
+.mvp-features {
+    list-style: none;
+    padding: 0;
+}
+
+.mvp-features li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    color: #666;
+}
+
+.mvp-features li::before {
+    content: '🏀';
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
+
+/* FOOTER PRINCIPAL */
+.contact-footer {
+    padding: 70px;
+    background: linear-gradient(135deg, #1a2332, #2d3748, #1e3c72);
+    position: relative;
+    overflow: hidden;
+    color: white;
+}
+
+/* Patrón de fondo animado */
+.contact-footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="%23e64225" opacity="0.1"/><circle cx="80" cy="40" r="1.5" fill="%23ffffff" opacity="0.05"/><circle cx="40" cy="80" r="1" fill="%232a5298" opacity="0.1"/><path d="M10,50 Q50,30 90,50" stroke="%23e64225" stroke-width="0.5" fill="none" opacity="0.1"/></svg>') repeat;
+    animation: patternMove 20s linear infinite;
+    z-index: 0;
+}
+
+@keyframes patternMove {
+    0% { transform: translateX(0) translateY(0); }
+    100% { transform: translateX(-100px) translateY(-50px); }
+}
+
+.footer-content {
+    position: relative;
+    z-index: 1;
+    padding: 40px 0 20px;
+}
+
+/* Logo y tagline */
+.footer-brand {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.footer-logo {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: logoFloat 3s ease-in-out infinite;
+    position: relative;
+}
+
+.footer-logo::after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border: 2px solid rgba(230, 66, 37, 0.3);
+    border-radius: 50%;
+    animation: logoPulse 2s ease-in-out infinite;
+}
+
+@keyframes logoFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes logoPulse {
+    0%, 100% { transform: scale(1); opacity: 0.7; }
+    50% { transform: scale(1.1); opacity: 0.3; }
+}
+
+.footer-tagline {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    background: linear-gradient(45deg, #ffffff, #e64225, #ffffff);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: textShine 3s linear infinite;
+}
+
+@keyframes textShine {
+    0% { background-position: 0% center; }
+    100% { background-position: 200% center; }
+}
+
+.footer-subtitle {
+    color: #a0a9b8;
+    font-size: 1rem;
+}
+
+/* Secciones del footer */
+.footer-section {
+    margin-bottom: 25px;
+}
+
+.footer-section h4 {
+    color: #e64225;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    position: relative;
+    display: inline-block;
+}
+
+.footer-section h4::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: linear-gradient(90deg, #e64225, transparent);
+    border-radius: 2px;
+}
+
+/* Navegación */
+.footer-nav {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-nav li {
+    margin-bottom: 8px;
+    transition: transform 0.3s ease;
+}
+
+.footer-nav li:hover {
+    transform: translateX(10px);
+}
+
+.footer-nav a {
+    color: #cbd5e0;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.footer-nav a::before {
+    content: '🏀';
+    margin-right: 10px;
+    font-size: 0.9rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.footer-nav a:hover {
+    color: #e64225;
+    padding-left: 15px;
+}
+
+.footer-nav a:hover::before {
+    opacity: 1;
+}
+
+/* Información de contacto */
+.contact-info {
+    list-style: none;
+    padding: 0;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    border-left: 4px solid #e64225;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.contact-item:hover {
+    background: rgba(230, 66, 37, 0.1);
+    transform: translateX(5px);
+}
+
+.contact-icon {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #e64225, #ff6b3d);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 12px;
+    font-size: 1rem;
+    color: white;
+    box-shadow: 0 4px 15px rgba(230, 66, 37, 0.3);
+}
+
+.contact-text {
+    flex: 1;
+}
+
+.contact-label {
+    font-size: 0.9rem;
+    color: #a0a9b8;
+    margin-bottom: 5px;
+}
+
+.contact-value {
+    font-size: 1rem;
+    color: white;
+    font-weight: 600;
+}
+
+/* Mapa */
+.map-container {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 15px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.map-container h4 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.map-wrapper {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.map-wrapper iframe {
+    width: 100%;
+    height: 200px;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.map-wrapper:hover iframe {
+    transform: scale(1.02);
+}
+
+/* Redes sociales */
+.social-section {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.social-link {
+    width: 45px;
+    height: 45px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    object-fit: cover; /* recorta la imagen para que no se deforme */
+    border-radius: 50%
+}
+
+.social-link:hover {
+    background: linear-gradient(135deg, #e64225, #ff6b3d);
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 8px 20px rgba(230, 66, 37, 0.4);
+    color: white;
+}
+
+.social-link.instagram:hover {
+    background: linear-gradient(135deg, #E4405F, #C13584, #833AB4);
+}
+
+.social-link.facebook:hover {
+    background: linear-gradient(135deg, #1877F2, #4267B2);
+}
+
+.social-link.whatsapp:hover {
+    background: linear-gradient(135deg, #15a502, #6cff82);
+}
+
+.social-link.youtube:hover {
+    background: linear-gradient(135deg, #FF0000, #a83f3f);
+}
+.social-link.tiktok:hover {
+    background: linear-gradient(135deg, #69C9D0, #EE1D52);
+}
+
+/* Copyright */
+.copyright {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 20px 0;
+    margin-top: 40px;
+    text-align: center;
+    color: #a0a9b8;
+    backdrop-filter: blur(10px);
+}
+
+.copyright-text {
+    margin: 0;
+}
+@media (max-width: 768px) {
+    .footer-content {
+        padding: 60px 0 30px;
+    }
+    
+    .footer-logo {
+        width: 100px;
+        height: 100px;
+        font-size: 1.5rem;
+    }
+    
+    .footer-tagline {
+        font-size: 1.2rem;
+    }
+    
+    .social-links {
+        gap: 15px;
+    }
+    
+    .social-link {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+    
+    .map-wrapper iframe {
+        height: 250px;
+    }
+    
+    .whatsapp-float {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+        bottom: 20px;
+        right: 20px;
+    }
+}
+
+
+        /* SECCIÓN ESPECÍFICA EVENTOS MVP */
+        .mvp-events-section {
+            width: 100vw;
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+            background: #ffffff;
+            padding: 80px 0;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                url('CANCHA/pngwing.com.png') center/cover no-repeat;
+        }
+
+        .mvp-events-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* TÍTULO ESPECÍFICO PARA EVENTOS MVP */
+        .mvp-events-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white;
+            text-shadow: 2px 2px 4px #e64225;
+            margin-bottom: 5px;
+        }
+
+        /* TÍTULO ESPECÍFICO PARA EVENTOS MVP */
+        .mvp-events-title-prox {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #293686;
+            margin-bottom: 5px;
+        }
+
+        .mvp-events-subtitle {
+            text-align: center;
+            color: white;
+            font-size: 1.1rem;
+        }
+
+        /* CONTROLES ESPECÍFICOS MVP CAROUSEL */
+        .mvp-carousel-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .mvp-carousel-nav {
+            display: flex;
+            gap: 15px;
+        }
+
+        .mvp-nav-btn {
+            width: 45px;
+            height: 45px;
+            border: 2px solid #e64225;
+            background: white;
+            color: #e64225;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+        }
+
+        .mvp-nav-btn:hover {
+            background: #e64225;
+            color: white;
+        }
+
+        .mvp-nav-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .mvp-nav-btn:disabled:hover {
+            background: white;
+            color: #e64225;
+        }
+
+        /* INDICADORES ESPECÍFICOS MVP */
+        .mvp-carousel-indicators {
+            display: flex;
+            gap: 8px;
+        }
+
+        .mvp-indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #ddd;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .mvp-indicator.active {
+            background: #e64225;
+        }
+
+        /* CONTADOR MVP */
+        .mvp-slide-counter {
+            color: #666;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        /* CONTENEDOR CARRUSEL MVP */
+        .mvp-carousel-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            border: 1px solid #eee;
+        }
+
+        /* SLIDES MVP */
+        .mvp-carousel-wrapper {
+            display: flex;
+            transition: transform 0.4s ease;
+        }
+
+        .mvp-carousel-slide {
+            min-width: 100%;
+            padding: 30px;
+            background: #fafafa;
+        }
+
+        /* GRID HORIZONTAL ESPECÍFICO MVP */
+        .mvp-masonry-grid {
+            display: flex;
+            gap: 25px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            padding: 10px 0;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .mvp-masonry-grid::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .mvp-masonry-grid::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+
+        .mvp-masonry-grid::-webkit-scrollbar-thumb {
+            background: #e64225;
+            border-radius: 4px;
+        }
+
+        .mvp-masonry-grid::-webkit-scrollbar-thumb:hover {
+            background: #d73920;
+        }
+
+        /* TARJETAS ESPECÍFICAS MVP EVENTOS */
+        .mvp-event-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            border: 1px solid #e9ecef;
+            transition: all 0.3s ease;
+            position: relative;
+            min-width: 100px;
+            max-width: 400px;
+            flex-shrink: 0;
+        }
+
+        .mvp-event-card:hover {
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transform: translateY(-3px);
+            border-color: #e64225;
+        }
+
+        /* TIPOS DE TARJETAS MVP - SOLO ANCHO */
+        .mvp-event-card.large {
+            min-width: 200px;
+            max-width: 400px;
+        }
+
+        .mvp-event-card.wide {
+            min-width: 200px;
+            max-width: 400px;
+        }
+
+        .mvp-event-card.featured {
+            min-width: 200px;
+            max-width: 400px;
+            background: linear-gradient(135deg, #f8f9fa, white);
+            border: 2px solid #e64225;
+        }
+
+        /* CONTENIDO DE TARJETAS MVP */
+        .mvp-event-date {
+            color: #e64225;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .mvp-event-title {
+            color: #333;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .mvp-event-card.featured .mvp-event-title {
+            font-size: 1.8rem;
+            color: #1e3c72;
+        }
+
+        .mvp-event-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        .mvp-event-card.featured .mvp-event-description {
+            font-size: 1.05rem;
+        }
+
+        /* ESTADÍSTICAS MVP */
+        .mvp-event-stats {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .mvp-event-stat {
+            background: rgba(230,66,37,0.1);
+            color: #e64225;
+            border-color: rgba(230,66,37,0.2);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid #e9ecef;
+        }
+
+        .mvp-event-card.featured .mvp-event-stat {
+            background: rgba(230,66,37,0.1);
+            color: #e64225;
+            border-color: rgba(230,66,37,0.2);
+        }
+
+        /* RESPONSIVO ESPECÍFICO MVP */
+        @media (max-width: 768px) {
+            .mvp-events-title {
+                font-size: 2rem;
+            }
+            
+            .mvp-carousel-controls {
+                flex-direction: column;
+                gap: 20px;
+                align-items: center;
+            }
+            
+            .mvp-event-card {
+                min-width: 280px;
+            }
+            
+            .mvp-event-card.large {
+                min-width: 320px;
+            }
+            
+            .mvp-event-card.wide {
+                min-width: 350px;
+            }
+            
+            .mvp-event-card.featured {
+                min-width: 380px;
+            }
+            
+            .mvp-carousel-slide {
+                padding: 20px;
+            }
+            
+            .mvp-events-section {
+                padding: 60px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .mvp-nav-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+            
+            .mvp-event-card {
+                padding: 20px;
+                min-width: 260px;
+            }
+            
+            .mvp-event-card.large,
+            .mvp-event-card.wide,
+            .mvp-event-card.featured {
+                min-width: 280px;
+            }
+        }
+
+        /* ESTILOS PARA SMOOTH SCROLLING MVP */
+        .mvp-carousel-wrapper {
+            scroll-behavior: smooth;
+        }
+
+.mvp-quote-btn {
+    background: linear-gradient(135deg, #e64225, #ff6b3d);
+    color: white;
+    padding: 15px 35px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 50px;
+    display: inline-block;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(230, 66, 37, 0.3);
+    border: 2px solid transparent;
+}
+
+.mvp-quote-btn:hover {
+    background: transparent;
+    color: #e64225;
+    border-color: #e64225;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(230, 66, 37, 0.4);
+}
+.mvp-quote-section {
+    padding: 20px;
+    text-align: center;
+    border-radius: 12px;
+    margin-top: 10px;
+}
+
+/* Para múltiples imágenes en una tarjeta */
+.mvp-event-description img + img {
+    margin-top: 8px;
+}
+
+/* Responsivo para móviles */
+@media (max-width: 768px) {
+    .mvp-event-card .mvp-event-description img,
+    .mvp-event-card .mvp-event-description video {
+        max-height: 200px;
+    }
+    
+    .mvp-event-card.featured .mvp-event-description img,
+    .mvp-event-card.featured .mvp-event-description video {
+        max-height: 200px;
+    }
+}
+
+/* CONTENIDO DE TARJETAS MVP CON IMÁGENES Y VIDEOS */
+.mvp-event-description img,
+.mvp-event-description video,
+.mvp-event-description iframe {
+    width: 100%;
+    height: 300px;
+    border-radius: 8px;
+    margin: 10px auto;
+    display: block;
+    object-fit: contain;
+}
+
+/* Para iframes específicamente */
+.mvp-event-description iframe {
+    border: none;
+    height: 280px;
+}
+
+/* Para tarjetas FEATURED - más grandes */
+.mvp-event-card.featured .mvp-event-description img,
+.mvp-event-card.featured .mvp-event-description video,
+.mvp-event-card.featured .mvp-event-description iframe {
+    height: 350px;
+}
+
+/* Para tarjetas LARGE */
+.mvp-event-card.large .mvp-event-description img,
+.mvp-event-card.large .mvp-event-description video,
+.mvp-event-card.large .mvp-event-description iframe {
+    height: 280px;
+}
+
+/* Contenedor de descripción centrado */
+.mvp-event-description {
+    text-align: center;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+}
+
+/* Responsive móvil */
+@media (max-width: 768px) {
+    .mvp-event-description img,
+    .mvp-event-description video,
+    .mvp-event-description iframe {
+        height: 200px;
+    }
+    
+    .mvp-event-card.featured .mvp-event-description img,
+    .mvp-event-card.featured .mvp-event-description video,
+    .mvp-event-card.featured .mvp-event-description iframe {
+        height: 250px;
+    }
+    
+    .mvp-event-card.large .mvp-event-description img,
+    .mvp-event-card.large .mvp-event-description video,
+    .mvp-event-card.large .mvp-event-description iframe {
+        height: 220px;
+    }
+}
+
+/* Texto después de imagen vuelve a la izquierda */
+.mvp-event-description br + text,
+.mvp-event-description img + br + * {
+    text-align: left;
+    display: block;
+    margin-top: 10px;
+}
+.mvp-mission-vision {
+    padding: 80px 0;
+    background: #f8f9fa;
+    position: relative;
+}
+
+.mvp-mission-vision::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #e64225, transparent);
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+/* Contenido de Misión */
+.mission-content {
+    text-align: center;
+    height: 100%;
+}
+
+.mission-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #e64225, #ff6b3d);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    color: white;
+    font-size: 2rem;
+    box-shadow: 0 8px 25px rgba(230, 66, 37, 0.3);
+}
+
+.mission-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1e3c72;
+}
+
+.mission-text {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #555;
+}
+
+/* Contenido de Visión */
+.vision-content {
+    text-align: center;
+    height: 100%;
+}
+
+.vision-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    color: white;
+    font-size: 2rem;
+    box-shadow: 0 8px 25px rgba(30, 60, 114, 0.3);
+}
+
+.vision-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1e3c72;
+}
+
+.vision-text {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #555;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .mvp-mission-vision::before {
+        display: none; /* Oculta la línea divisora en móvil */
+    }
+    
+    .mission-content,
+    .vision-content {
+        padding: 30px 20px;
+        margin-bottom: 30px;
+    }
+    
+    .mission-title,
+    .vision-title {
+        font-size: 1.6rem;
+    }
+    
+    .mission-icon,
+    .vision-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+}
+
+/* SECCIÓN COMBINADA MVP + INSTALACIONES */
+.mvp-combined-section {
+    padding: 80px 0;
+    background: #f8f9fa;
+    position: relative;
+    overflow: hidden;
+}
+
+.mvp-combined-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.mvp-combined-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* SEPARADOR VERTICAL */
+.mvp-combined-section::after {
+    content: '';
+    position: absolute;
+    top: 10%;
+    left: 35%;
+    width: 2px;
+    height: 80%;
+    background: linear-gradient(180deg, transparent, #e64225, transparent);
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+/* LADO IZQUIERDO - ¿QUÉ ES MVP? */
+.mvp-content {
+    padding-right: 20px;
+}
+
+.mvp-title {
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: #1e3c72;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.mvp-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #e64225, #2a5298);
+    border-radius: 2px;
+}
+
+.mvp-text {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 2rem;
+}
+
+.mvp-features {
+    list-style: none;
+    padding: 0;
+}
+
+.mvp-features li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    color: #666;
+}
+
+.mvp-features li::before {
+    content: '🏀';
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
+
+/* LADO DERECHO - INSTALACIONES */
+.installations-content {
+    padding-left: 40px;
+    padding-top: 0;
+}
+
+.installations-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #1e3c72;
+    margin-bottom: 1rem;
+    position: relative;
+    text-align: center;
+}
+
+.installations-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 40%;
+    width: 180px;
+    height: 4px;
+    background: linear-gradient(90deg, #2a5298, #e64225);
+    border-radius: 2px;
+    text-align: center;
+}
+
+.installations-subtitle {
+    color: #666;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+/* SWIPER INSTALACIONES ADAPTADO */
+.installations-swiper {
+    padding: 10px 0 60px; /* Más padding abajo para las flechas */
+    margin-bottom: 0;
+}
+
+.installation-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.installation-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+}
+
+.installation-image {
+    position: relative;
+    overflow: hidden;
+    height: 230px;
+}
+
+.installation-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.installation-card:hover .installation-image img {
+    transform: scale(1.05);
+}
+
+.installation-overlay {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: linear-gradient(135deg, rgba(230,66,37,0.9), rgba(30,60,114,0.9));
+    padding: 8px;
+    border-radius: 50%;
+    color: white;
+    font-size: 1rem;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.3s ease;
+}
+
+.installation-card:hover .installation-overlay {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.installation-content {
+    padding: 15px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.installation-title-card {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1e3c72;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.installation-title-card i {
+    color: #e64225;
+    font-size: 0.9rem;
+}
+
+.installation-description {
+    color: #666;
+    line-height: 1.4;
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+    flex: 1;
+}
+
+.installation-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-bottom: 10px;
+}
+
+.feature-tag {
+    background: rgba(230,66,37,0.1);
+    color: #e64225;
+    padding: 2px 6px;
+    border-radius: 8px;
+    font-size: 0.7rem;
+    font-weight: 500;
+}
+
+.installation-stats {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 10px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #e64225;
+    display: block;
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 0.65rem;
+    color: #999;
+    margin-top: 2px;
+}
+
+/* CONTROLES SWIPER ADAPTADOS */
+.installations-swiper .swiper-button-next,
+.installations-swiper .swiper-button-prev {
+    bottom: -50px; /* Moverlas abajo del swiper */
+    color: #e64225;
+    width: 35px;
+    height: 35px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.installations-swiper .swiper-button-next::after,
+.installations-swiper .swiper-button-prev::after {
+    font-size: 14px;
+}
+
+.installations-swiper .swiper-button-next:hover,
+.installations-swiper .swiper-button-prev:hover {
+    background: #e64225;
+    color: white;
+}
+
+.installations-swiper .swiper-pagination-bullet {
+    background: #e64225;
+    opacity: 0.3;
+    width: 8px;
+    height: 8px;
+}
+
+.installations-swiper .swiper-pagination-bullet-active {
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+    .mvp-combined-section::after {
+        display: none; /* Oculta línea divisora */
+    }
+    
+    .mvp-content,
+    .installations-content {
+        padding: 0;
+        margin-bottom: 40px;
+    }
+    
+    .mvp-title,
+    .installations-title {
+        font-size: 2rem;
+        text-align: center;
+    }
+    
+    .mvp-combined-section {
+        padding: 60px 0;
+    }
+    
+    .installation-image {
+        height: 140px;
+    }
+}
+
+@media (max-width: 480px) {
+    .installations-swiper .swiper-button-next,
+    .installations-swiper .swiper-button-prev {
+        display: none;
+    }
+}
+
+/* SECCIÃ“N DE LIGAS MVP */
+.mvp-leagues-section {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    background: #ffffff;
+    padding: 80px 0 40px;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                url('instalaciones/cancha.jpeg') center/cover no-repeat;
+}
+
+.mvp-leagues-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* TÃTULO DE LA SECCIÃ“N */
+.mvp-leagues-title {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 900;
+    color: #1e3c72;
+    margin-bottom: 10px;
+    position: relative;
+    color: white;
+    text-shadow: 2px 2px 4px #e64225;
+}
+
+.mvp-leagues-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    border-radius: 2px;
+}
+
+.mvp-leagues-subtitle {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.644);
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* TABS DE CATEGORÃAS */
+.leagues-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0;
+    margin-bottom: 40px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.league-tab {
+    background: #1e3c72;
+    color: white;
+    padding: 15px 25px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    flex: 1;
+    min-width: 140px;
+    text-align: center;
+}
+
+.league-tab:hover {
+    background: #e64225;
+    transform: translateY(-2px);
+}
+
+.league-tab.active {
+    background: #e64225 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(230, 66, 37, 0.4);
+}
+
+/* CONTENIDO DE LAS LIGAS */
+.leagues-content {
+    background: #f8f9fa;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    min-height: 350px;
+}
+
+.league-content {
+    display: none;
+}
+
+.league-content.active {
+    display: block;
+}
+
+/* GRID DE LIGAS */
+.leagues-grid {
+    width: 100%;
+}
+
+/* TARJETA DE LIGA */
+.league-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    position: relative;
+    height: 300px;
+    cursor: pointer;
+}
+
+.league-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+/* IMAGEN DE LA LIGA */
+.league-image {
+    position: relative;
+    height: 70%;
+    overflow: hidden;
+}
+
+.league-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.league-card:hover .league-image img {
+    transform: scale(1.05);
+}
+
+/* OVERLAY DE LA IMAGEN */
+.league-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(30,60,114,0.8), rgba(230,66,37,0.8));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.league-card:hover .league-overlay {
+    opacity: 1;
+}
+
+.overlay-content {
+    text-align: center;
+}
+
+.overlay-icon {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.overlay-text {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+/* CONTENIDO DE LA TARJETA */
+.league-info {
+    padding: 20px;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.league-name {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: white;
+    text-align: center;
+    margin: 0;
+    backdrop-filter: blur(15px);
+}
+
+/* BADGE DE EDAD */
+.age-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(230,66,37,0.9);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    backdrop-filter: blur(10px);
+}
+
+/* BOTÃ“N VER TODAS */
+.view-all-btn {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: white;
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 50px;
+    display: inline-block;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(30, 60, 114, 0.3);
+    margin: 40px auto 0;
+    text-align: center;
+}
+
+.view-all-btn:hover {
+    background: linear-gradient(135deg, #e64225, #ff6b3d);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(230, 66, 37, 0.4);
+}
+
+.view-all-container {
+    text-align: center;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+    .mvp-leagues-title {
+        font-size: 2.5rem;
+    }
+    
+    .leagues-tabs {
+        flex-direction: column;
+    }
+    
+    .league-tab {
+        min-width: auto;
+    }
+    
+    .leagues-content {
+        padding: 25px;
+    }
+    
+    .leagues-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .mvp-leagues-section {
+        padding: 60px 0 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .league-card {
+        height: 250px;
+    }
+    
+    .overlay-icon {
+        font-size: 2.5rem;
+    }
+    
+    .overlay-text {
+        font-size: 1rem;
+    }
+}
+
+/* ANIMACIONES DE ENTRADA */
+.league-card {
+    animation: cardFadeIn 0.6s ease forwards;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.league-card:nth-child(1) { animation-delay: 0.1s; }
+.league-card:nth-child(2) { animation-delay: 0.2s; }
+.league-card:nth-child(3) { animation-delay: 0.3s; }
+.league-card:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes cardFadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* CONTENEDOR PRINCIPAL */
+.leagues-swiper-section { 
+    margin: 0px 0;
+}
+
+/* SWIPER PERSONALIZADO */
+.leagues-swiper {
+    padding: 20px 0 60px;
+}
+
+/* FLIP CARD CSS */
+.flip-card {
+    background-color: transparent;
+    width: 100%;
+    height: 450px;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.flip-card.flipped .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* FRENTE DE LA TARJETA */
+.flip-card-front {
+    background: linear-gradient(135deg, #1e3c72, #e64225);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-size: cover;
+    align-items: center;
+    padding: 30px;
+}
+
+.league-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    opacity: 0.9;
+}
+
+.league-name {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.league-subtitle {
+    font-size: 1.2rem;
+    opacity: 0.8;
+    margin-bottom: 20px;
+}
+
+.click-hint {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.9rem;
+    opacity: 0.7;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 1; }
+}
+
+/* REVERSO DE LA TARJETA */
+.flip-card-back {
+    background: white;
+    color: #333;
+    transform: rotateY(180deg);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.back-header {
+    text-align: center;
+    border-bottom: 2px solid #e64225;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.back-title {
+    color: #1e3c72;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.back-subtitle {
+    color: #e64225;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.info-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.info-item {
+    text-align: center;
+}
+
+.info-label {
+    color: #666;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.info-value {
+    color: #1e3c72;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.description {
+    color: #555;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 20px;
+    flex: 1;
+}
+
+.back-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.btn-info {
+    background: #e64225;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-info:hover {
+    background: #1e3c72;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.btn-stats {
+    background: #1e3c72;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-stats:hover {
+    background: #e64225;
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* CONTROLES SWIPER */
+.leagues-swiper .swiper-button-next,
+.leagues-swiper .swiper-button-prev {
+    color: white;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    margin-top: -22px;
+    backdrop-filter: blur(10px);
+}
+
+.leagues-swiper .swiper-button-next::after,
+.leagues-swiper .swiper-button-prev::after {
+    font-size: 18px;
+}
+
+.leagues-swiper .swiper-pagination-bullet {
+    background: white;
+    opacity: 0.5;
+}
+
+.leagues-swiper .swiper-pagination-bullet-active {
+    background: #e64225;
+    opacity: 1;
+}
+
+/* RESPONSIVE TABLET */
+@media (max-width: 1024px) {
+    .mvp-leagues-title {
+        font-size: 2.5rem;
+    }
+    
+    .flip-card {
+        height: 480px;
+    }
+}
+
+/* RESPONSIVE MÓVIL */
+@media (max-width: 768px) {
+    .mvp-leagues-section {
+        padding: 60px 0 30px;
+    }
+    
+    .mvp-leagues-title {
+        font-size: 2rem;
+    }
+    
+    .leagues-tabs {
+        flex-direction: column;
+    }
+    
+    .league-tab {
+        min-width: auto;
+    }
+    
+    .leagues-content {
+        padding: 20px;
+        min-height: auto;
+    }
+    
+    .leagues-swiper {
+        padding: 10px 0 70px;
+    }
+    
+    .flip-card {
+        height: 450px;
+    }
+    
+    .league-name {
+        font-size: 1.5rem;
+        padding: 10px 16px;
+    }
+    
+    .league-subtitle {
+        font-size: 1rem;
+    }
+    
+    .click-hint {
+        font-size: 0.8rem;
+        bottom: 30px;
+    }
+    
+    .back-title {
+        font-size: 1.4rem;
+    }
+    
+    .info-grid {
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .flip-card {
+        height: 420px;
+    }
+    
+    .league-name {
+        font-size: 1.3rem;
+    }
+    
+    .back-title {
+        font-size: 1.2rem;
+    }
+    
+    .info-label {
+        font-size: 0.7rem;
+    }
+    
+    .info-value {
+        font-size: 0.85rem;
+    }
+}
+
+.mvp-memberships-section {
+    padding: 80px 0;
+    background: #f8f9fa;
+}
+
+.memberships-content {
+    padding-right: 30px;
+}
+
+.memberships-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #1e3c72;
+    margin-bottom: 1rem;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.memberships-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #e64225, #2a5298);
+    border-radius: 2px;
+}
+
+.memberships-subtitle {
+    color: #666;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.memberships-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.membership-card {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    position: relative;
+    text-align: center;
+}
+
+.membership-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.membership-card.featured {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: white;
+    border: 3px solid #e64225;
+    transform: scale(1.05);
+}
+
+.membership-card.featured:hover {
+    transform: scale(1.08) translateY(-10px);
+}
+
+.membership-icon {
+    font-size: 3rem;
+    color: #e64225;
+    margin-bottom: 15px;
+}
+
+.membership-card.featured .membership-icon {
+    color: gold;
+}
+
+.membership-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    background: #e64225;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 15px;
+}
+
+.membership-name.premium {
+    background: gold;
+    color: #1e3c72;
+}
+
+
+.membership-price {
+    margin-bottom: 20px;
+}
+
+.membership-price .price {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #e64225;
+}
+
+.membership-card.featured .membership-price .price {
+    color: gold;
+}
+
+.membership-price .period {
+    font-size: 1rem;
+    color: #666;
+}
+
+.membership-card.featured .membership-price .period {
+    color: rgba(255,255,255,0.8);
+}
+
+.membership-features {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.membership-features li {
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+    color: #555;
+}
+
+.membership-card.featured .membership-features li {
+    border-bottom-color: rgba(255,255,255,0.2);
+    color: white;
+}
+
+.membership-features li i {
+    color: #e64225;
+    margin-right: 10px;
+}
+
+.membership-card.featured .membership-features li i {
+    color: gold;
+}
+
+.membership-btn {
+    background: #e64225;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.membership-btn:hover {
+    background: #1e3c72;
+    color: white;
+    transform: scale(1.05);
+}
+
+.membership-btn.premium {
+    background: gold;
+    color: #1e3c72;
+}
+
+.membership-btn.premium:hover {
+    background: white;
+    color: #1e3c72;
+}
+
+/* PODCAST */
+.podcast-content {
+    background: white;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    height: 100%;
+    position: sticky;
+    top: 20px;
+}
+
+.podcast-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1e3c72;
+    margin-bottom: 10px;
+}
+
+.podcast-subtitle {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+.podcast-video {
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+}
+
+.podcast-video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.podcast-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: white;
+    font-size: 3rem;
+}
+
+.podcast-description {
+    color: #555;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.podcast-btn {
+    background: #e64225;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: inline-block;
+    transition: all 0.3s ease;
+    width: 100%;
+    text-align: center;
+}
+
+.podcast-btn:hover {
+    background: #1e3c72;
+    color: white;
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .mvp-memberships-section {
+        padding: 60px 0;
+    }
+    
+    .memberships-content {
+        padding-right: 0;
+        margin-bottom: 40px;
+    }
+    
+    .memberships-title {
+        font-size: 2rem;
+    }
+    
+    .memberships-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .membership-card.featured {
+        transform: scale(1);
+    }
+
+    .podcast-content {
+        position: relative;
+        top: 0;
+    }
+}
+
+.imagen-youtube {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;      /* Hace la imagen circular */
+  background-color: white; /* Fondo blanco */
+  padding: 10px;           /* Espacio entre imagen y borde circular */
+  object-fit: cover;       /* Ajusta la imagen sin deformarla */
+  display: flex;           /* Activa Flexbox */
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center;     /* Centra verticalmente */
+}
+
+/* ============================================
+   GRID ESTÁTICO PARA FLIP CARDS SIN SWIPER
+   ============================================ */
+
+.leagues-grid-static {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 20px 0;
+    width: 100%;
+}
+
+/* Cuando solo hay 1 tarjeta */
+.leagues-grid-static:has(.flip-card:only-child) {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* Cuando hay 2 tarjetas */
+.leagues-grid-static:has(.flip-card:nth-child(2):last-child) {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+/* Cuando hay 3 tarjetas */
+.leagues-grid-static:has(.flip-card:nth-child(3):last-child) {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+/* Cuando hay 4 o más tarjetas */
+.leagues-grid-static:has(.flip-card:nth-child(4)) {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+/* RESPONSIVE PARA GRID ESTÁTICO */
+@media (max-width: 1200px) {
+    .leagues-grid-static {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .leagues-grid-static {
+        grid-template-columns: 1fr !important;
+        gap: 20px;
+    }
+    
+    .leagues-grid-static:has(.flip-card:only-child) {
+        max-width: 100%;
+    }
+}
+
+/* SWIPER DE PODCAST */
+.podcast-swiper {
+    padding: 0 0 40px;
+    margin-bottom: 15px;
+}
+
+.podcast-swiper .swiper-slide {
+    display: flex;
+    flex-direction: column;
+}
+
+.video-description {
+    text-align: center;
+    color: #555;
+    font-size: 0.9rem;
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+.podcast-swiper .swiper-button-next,
+.podcast-swiper .swiper-button-prev {
+    color: #e64225;
+    width: 30px;
+    height: 30px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.podcast-swiper .swiper-button-next::after,
+.podcast-swiper .swiper-button-prev::after {
+    font-size: 12px;
+}
+
+.podcast-swiper .swiper-pagination-bullet {
+    background: #e64225;
+    opacity: 0.3;
+}
+
+.podcast-swiper .swiper-pagination-bullet-active {
+    opacity: 1;
+}
