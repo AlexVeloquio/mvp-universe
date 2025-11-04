@@ -2401,3 +2401,22 @@ z-index: 1;
 .podcast-swiper .swiper-pagination-bullet-active {
     opacity: 1;
 }
+
+/* Fix para teléfono en móvil */
+@media (max-width: 768px) {
+    .contact-item {
+        font-size: 1.2rem !important;
+    }
+    
+    .contact-item i {
+        font-size: 1.5rem !important;
+    }
+    
+    footer h5 {
+        font-size: 1.3rem !important;
+    }
+    
+    footer p, footer a {
+        font-size: 0.95rem !important;
+    }
+}
