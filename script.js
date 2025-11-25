@@ -223,19 +223,29 @@ const podcastSwiper = new Swiper('.podcast-swiper', {
     slidesPerView: 1,
     spaceBetween: 20,
     loop: true,
-    
-    autoplay: {
-        delay: 5000,
-        disableOnInteraction: false,
-    },
-    
+    autoplay: false,
+    allowTouchMove: true,
+    grabCursor: true,
+    // Swipe en móvil
+    touchRatio: 1,
+    touchAngle: 45,
     navigation: {
         nextEl: '.podcast-swiper .swiper-button-next',
         prevEl: '.podcast-swiper .swiper-button-prev',
     },
-    
     pagination: {
         el: '.podcast-swiper .swiper-pagination',
         clickable: true,
+    },
+    // Responsive
+    breakpoints: {
+        320: {
+            slidesPerView: 1,
+            spaceBetween: 15,
+        },
+        768: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+        }
     }
 });
