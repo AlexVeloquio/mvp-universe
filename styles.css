@@ -1299,6 +1299,7 @@ z-index: 1;
     color: #1e3c72;
     margin-bottom: 8px;
     display: flex;
+    justify-content: center; /* CAMBIO: centra en flex */
     align-items: center;
     gap: 6px;
 }
