@@ -796,11 +796,35 @@ z-index: 1;
             line-height: 1.6;
             margin-bottom: 10px;
             font-size: 0.95rem;
+            text-align: center;
         }
 
         .mvp-event-card.featured .mvp-event-description {
             font-size: 1.05rem;
         }
+        
+        .mvp-event-cta {
+            display: block;
+            width: fit-content;
+            margin: 20px auto; /* Centra el botón */
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #e64225, #ff6347);
+            color: white;
+            text-decoration: none;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: .8rem;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(230, 66, 37, 0.3);
+            transition: all 0.3s ease;
+        }
+        .mvp-event-cta:hover {
+            background: linear-gradient(135deg, #ff6347, #e64225);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(230, 66, 37, 0.4);
+            color: white;
+        }
+
 
         /* ESTADÍSTICAS MVP */
         .mvp-event-stats {
@@ -828,6 +852,12 @@ z-index: 1;
 
         /* RESPONSIVO ESPECÍFICO MVP */
         @media (max-width: 768px) {
+            .mvp-event-cta {
+                width: 90%;
+                margin: 15px auto; 
+                font-size: 0.75rem; 
+                padding: 10px 20px;
+            }
             .mvp-events-title {
                 font-size: 2rem;
             }
