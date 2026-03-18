@@ -1,0 +1,1074 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Estadísticas Liga Veteranos 49+ | MVP UNIVERSE</title>
+    
+    <meta name="description" content="Estadísticas en vivo de la Liga Veteranos 49+ - MVP Universe">
+    <meta name="keywords" content="estadísticas basketball, liga veteranos, MVP Universe, tabla posiciones">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="logos/MVP_LOGO.png">
+    
+    <style>
+        :root {
+            --mvp-orange: #e64225;
+            --mvp-blue: #1e3c72;
+            --mvp-blue-light: #2a5298;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding-top: 80px;
+            min-height: 100vh;
+        }
+        
+        /* NAVBAR */
+        .navbar-stats {
+            background: linear-gradient(135deg, var(--mvp-blue), var(--mvp-blue-light));
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        
+        .navbar-brand img {
+            filter: drop-shadow(0 2px 5px rgba(0,0,0,0.3));
+        }
+        
+        /* HEADER PRINCIPAL */
+        .stats-header {
+            background: linear-gradient(135deg, var(--mvp-blue), var(--mvp-blue-light));
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            margin-bottom: 40px;
+        }
+        
+        .stats-header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 10px;
+        }
+        
+        .stats-header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        /* TABS */
+        .stats-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .stat-tab {
+            background: white;
+            color: var(--mvp-blue);
+            border: 2px solid var(--mvp-blue);
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .stat-tab:hover {
+            background: var(--mvp-blue);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .stat-tab.active {
+            background: var(--mvp-orange);
+            border-color: var(--mvp-orange);
+            color: white;
+        }
+        
+        /* CONTENEDORES DE CONTENIDO */
+        .tab-content-container {
+            display: none;
+        }
+        
+        .tab-content-container.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* TARJETAS */
+        .stat-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+        }
+        
+        .stat-card h3 {
+            color: var(--mvp-blue);
+            font-weight: 700;
+            margin-bottom: 20px;
+            border-bottom: 3px solid var(--mvp-orange);
+            padding-bottom: 10px;
+        }
+        
+        /* TABLA DE POSICIONES */
+        .positions-table {
+            width: 100%;
+            overflow-x: auto;
+        }
+        
+        .positions-table table {
+            width: 100%;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .positions-table thead {
+            background: linear-gradient(135deg, var(--mvp-blue), var(--mvp-blue-light));
+            color: white;
+        }
+        
+        .positions-table th {
+            padding: 15px 10px;
+            font-weight: 600;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        .positions-table td {
+            padding: 12px 10px;
+            text-align: center;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .positions-table tbody tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .positions-table .pos {
+            font-weight: 700;
+            color: var(--mvp-orange);
+            font-size: 1.1rem;
+        }
+        
+        .positions-table .team-name {
+            text-align: left;
+            font-weight: 600;
+            color: var(--mvp-blue);
+        }
+        
+        /* PRÓXIMOS PARTIDOS */
+        .match-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .match-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+        
+        .match-date {
+            background: var(--mvp-orange);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .match-teams {
+            flex: 1;
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--mvp-blue);
+        }
+        
+        .vs {
+            color: var(--mvp-orange);
+            font-weight: 700;
+            margin: 0 10px;
+        }
+        
+        /* LÍDERES ANOTADORES */
+        .leader-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .leader-item:hover {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            transform: translateX(5px);
+        }
+        
+        .leader-rank {
+            width: 40px;
+            height: 40px;
+            background: var(--mvp-orange);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-right: 15px;
+        }
+        
+        .leader-rank.gold {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+        }
+        
+        .leader-rank.silver {
+            background: linear-gradient(135deg, #C0C0C0, #808080);
+        }
+        
+        .leader-rank.bronze {
+            background: linear-gradient(135deg, #CD7F32, #8B4513);
+        }
+        
+        .leader-info {
+            flex: 1;
+        }
+        
+        .leader-name {
+            font-weight: 700;
+            color: var(--mvp-blue);
+            font-size: 1.1rem;
+        }
+        
+        .leader-team {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .leader-stats {
+            text-align: right;
+        }
+        
+        .leader-points {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--mvp-orange);
+        }
+        
+        .leader-avg {
+            font-size: 0.85rem;
+            color: #666;
+        }
+        
+        /* LOADING */
+        .loading {
+            text-align: center;
+            padding: 60px 0;
+        }
+        
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid var(--mvp-orange);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* RESULTADOS */
+        .result-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 15px;
+        }
+        
+        .result-score {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 15px 0;
+        }
+        
+        .team-score {
+            text-align: center;
+            flex: 1;
+        }
+        
+        .team-score .name {
+            font-weight: 600;
+            color: var(--mvp-blue);
+            margin-bottom: 5px;
+        }
+        
+        .team-score .score {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--mvp-orange);
+        }
+        
+        .team-score.winner .score {
+            color: #28a745;
+        }
+        
+        .score-divider {
+            font-size: 1.5rem;
+            color: #999;
+            font-weight: 300;
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .stats-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .stat-tab {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+            }
+            
+            .positions-table th,
+            .positions-table td {
+                padding: 8px 5px;
+                font-size: 0.85rem;
+            }
+            
+            .match-card {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .leader-points {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Selector de Liga */
+        .liga-selector {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .liga-btn {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid rgba(255,255,255,0.3);
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .liga-btn:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        .liga-btn.active {
+            background: var(--mvp-orange);
+            border-color: var(--mvp-orange);
+            box-shadow: 0 4px 15px rgba(230, 66, 37, 0.4);
+        }
+
+        /* Sección de Equipos */
+        .equipos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .equipo-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border-left: 5px solid var(--mvp-orange);
+        }
+
+        .equipo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .equipo-header {
+            background: linear-gradient(135deg, var(--mvp-blue), var(--mvp-blue-light));
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .equipo-nombre {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .equipo-total {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-top: 5px;
+        }
+
+        .jugadores-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .jugadores-table thead {
+            background: #f8f9fa;
+        }
+
+        .jugadores-table th {
+            padding: 12px 8px;
+            text-align: left;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--mvp-blue);
+            border-bottom: 2px solid #dee2e6;
+        }
+
+        .jugadores-table td {
+            padding: 10px 8px;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 0.9rem;
+        }
+
+        .jugadores-table tbody tr:hover {
+            background: #f8f9fa;
+        }
+
+        .jugador-numero {
+            width: 50px;
+            text-align: center;
+            font-weight: 700;
+            color: var(--mvp-orange);
+        }
+
+        .jugador-nombre {
+            font-weight: 600;
+            color: var(--mvp-blue);
+        }
+
+        .jugador-puntos {
+            text-align: center;
+            font-weight: 700;
+            color: var(--mvp-orange);
+            font-size: 1.1rem;
+        }
+
+        .jugador-porcentaje {
+            text-align: center;
+        }
+
+        .porcentaje-bar {
+            width: 100%;
+            background: #e9ecef;
+            border-radius: 10px;
+            height: 8px;
+            overflow: hidden;
+        }
+
+        .porcentaje-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--mvp-orange), #ff6b3d);
+            transition: width 0.3s ease;
+        }
+
+        .porcentaje-text {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #666;
+            margin-top: 3px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .liga-selector {
+                flex-direction: column;
+            }
+            
+            .liga-btn {
+                width: 100%;
+            }
+            
+            .equipos-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .jugadores-table th,
+            .jugadores-table td {
+                padding: 8px 4px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-stats fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="../logos/MVP_LOGO.png" alt="MVP Logo" style="width:50px;" class="rounded-pill">
+                <span class="ms-2">MVP UNIVERSE</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">
+                            <i class="fas fa-home me-1"></i>Inicio
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HEADER -->
+    <div class="stats-header">
+        <div class="container">
+            <h1>
+                <i class="fas fa-trophy me-2"></i>
+                <span id="liga-title">Liga Veteranos 49+</span>
+            </h1>
+            <p class="subtitle">Temporada 2025 - Estadísticas en vivo</p>
+            
+            <!-- NUEVO: Selector de Liga -->
+            <div class="liga-selector">
+                <button class="liga-btn active" onclick="cambiarLiga('49')" id="btn-liga-49">
+                    <i class="fas fa-users me-2"></i>Veteranos 49+
+                </button>
+                <button class="liga-btn" onclick="cambiarLiga('39')" id="btn-liga-39">
+                    <i class="fas fa-users me-2"></i>Veteranos 39+
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <div class="container">
+        <!-- TABS -->   
+        <div class="stats-tabs">
+            <button class="stat-tab active" onclick="showTab('tabla')">
+                <i class="fas fa-list-ol me-2"></i>Tabla
+            </button>
+            <button class="stat-tab" onclick="showTab('resultados')">
+                <i class="fas fa-basketball-ball me-2"></i>Resultados
+            </button>
+            <button class="stat-tab" onclick="showTab('proximos')">
+                <i class="fas fa-calendar me-2"></i>Próximos
+            </button>
+            <button class="stat-tab" onclick="showTab('equipos')">
+                <i class="fas fa-users me-2"></i>Equipos
+            </button>
+            <button class="stat-tab" onclick="showTab('lideres')">
+                <i class="fas fa-star me-2"></i>Líderes
+            </button>
+            <button class="stat-tab" onclick="showTab('lideres-triples')">
+                <i class="fas fa-fire me-2"></i>Triples
+            </button>
+        </div>
+
+        <!-- LOADING -->
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+            <p>Cargando estadísticas...</p>
+        </div>
+
+        <!-- TABLA DE POSICIONES -->
+        <div id="tabla" class="tab-content-container active">
+            <div class="stat-card">
+                <h3><i class="fas fa-trophy me-2"></i>Tabla de Posiciones</h3>
+                <div class="positions-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Posición</th>
+                                <th>Equipo</th>
+                                <th>PJ</th>
+                                <th>PG</th>
+                                <th>PP</th>
+                                <th>PF</th>
+                                <th>PC</th>
+                                <th>Dif</th>
+                                <th>Pts</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabla-body">
+                            <!-- Se llena con JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- RESULTADOS -->
+        <div id="resultados" class="tab-content-container">
+            <div class="stat-card">
+                <h3><i class="fas fa-basketball-ball me-2"></i>Resultados Recientes</h3>
+                <div id="resultados-container">
+                    <!-- Se llena con JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- PRÓXIMOS PARTIDOS -->
+        <div id="proximos" class="tab-content-container">
+            <div class="stat-card">
+                <h3><i class="fas fa-calendar me-2"></i>Próximos Partidos</h3>
+                <div id="proximos-container">
+                    <!-- Se llena con JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- LÍDERES ANOTADORES -->
+        <div id="lideres" class="tab-content-container">
+            <div class="stat-card">
+                <h3><i class="fas fa-star me-2"></i>Líderes Anotadores</h3>
+                <div id="lideres-container">
+                    <!-- Se llena con JavaScript -->
+                </div>
+            </div>
+        </div>
+        <div id="lideres-triples" class="tab-content-container">
+            <div class="stat-card">
+                <h3><i class="fas fa-fire me-2"></i>Líderes en Triples</h3>
+                <div id="lideres-triples-container"></div>
+            </div>
+        </div>
+
+        <!-- EQUIPOS CON JUGADORES -->
+        <div id="equipos" class="tab-content-container">
+            <div class="stat-card">
+                <h3><i class="fas fa-users me-2"></i>Equipos y Plantillas</h3>
+                <div id="equipos-container">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <br><br>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // ========================================
+        // CONFIGURACIÓN
+        // ========================================
+        const SHEET_API_URL = 'https://script.google.com/macros/s/AKfycby60Iecdu3t_kNpF8DN6EmGuiA1SKWwbfTDUHJ8lYm2s6idDJkOhFzWSb_bd9Alvl1Yhw/exec';
+        let ligaActual = '49'; // Por defecto liga 49+
+
+        // ========================================
+        // CAMBIAR LIGA
+        // ========================================
+        function cambiarLiga(liga) {
+            ligaActual = liga;
+            
+            // Actualizar botones
+            document.querySelectorAll('.liga-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.getElementById(`btn-liga-${liga}`).classList.add('active');
+            
+            // Actualizar título
+            document.getElementById('liga-title').textContent = `Liga Veteranos ${liga}+`;
+            
+            // Recargar datos
+            loadAllData();
+        }
+
+        // ========================================
+        // CARGAR TODOS LOS DATOS
+        // ========================================
+        async function loadAllData() {
+            try {
+                document.getElementById('loading').style.display = 'block';
+                
+                const response = await fetch(`${SHEET_API_URL}?action=all&liga=${ligaActual}`);
+                allData = await response.json();
+                
+                console.log('Datos cargados:', allData);
+                
+                // Ocultar loading
+                document.getElementById('loading').style.display = 'none';
+                
+                // Cargar todas las vistas
+                loadTablaPosiciones();
+                loadProximosPartidos();
+                loadLideresAnotadores();
+                loadLideresTriples();
+                loadEquipos();  // ← NUEVA FUNCIÓN
+                loadResultados();
+                
+            } catch (error) {
+                console.error('Error cargando datos:', error);
+                document.getElementById('loading').innerHTML = `
+                    <div class="alert alert-danger">
+                        <i class="fas fa-exclamation-triangle me-2"></i>
+                        Error al cargar los datos. Por favor verifica la configuración.
+                    </div>
+                `;
+            }
+        }
+
+        // ========================================
+        // CARGAR TABLA DE POSICIONES (Actualizada)
+        // ========================================
+        function loadTablaPosiciones() {
+            const tbody = document.getElementById('tabla-body');
+            tbody.innerHTML = '';
+            
+            if (!allData.tabla || allData.tabla.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="9" class="text-center">No hay datos disponibles</td></tr>';
+                return;
+            }
+            
+            allData.tabla.forEach((equipo, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td class="pos">${index + 1}</td>
+                    <td class="team-name">${equipo.equipo}</td>
+                    <td>${equipo.pj}</td>
+                    <td>${equipo.pg}</td>
+                    <td>${equipo.pp}</td>
+                    <td>${equipo.pf}</td>
+                    <td>${equipo.pc}</td>
+                    <td>${equipo.dif > 0 ? '+' : ''}${equipo.dif}</td>
+                    <td><strong>${equipo.puntos}</strong></td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        // ========================================
+        // NUEVA FUNCIÓN: CARGAR EQUIPOS
+        // ========================================
+        function loadEquipos() {
+            const container = document.getElementById('equipos-container');
+            container.innerHTML = '';
+            
+            if (!allData.equipos_detalle || allData.equipos_detalle.length === 0) {
+                container.innerHTML = '<p class="text-center text-muted">No hay datos de equipos disponibles</p>';
+                return;
+            }
+            
+            const grid = document.createElement('div');
+            grid.className = 'equipos-grid';
+            
+            allData.equipos_detalle.forEach(equipo => {
+                const equipoCard = document.createElement('div');
+                equipoCard.className = 'equipo-card';
+                
+                // Header del equipo
+                const header = `
+                    <div class="equipo-header">
+                        <h4 class="equipo-nombre">${equipo.nombre_equipo}</h4>
+                        <p class="equipo-total">${equipo.total_jugadores} jugadores</p>
+                    </div>
+                `;
+                
+                // Tabla de jugadores
+                let jugadoresHTML = `
+                    <table class="jugadores-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Jugador</th>
+                                <th style="text-align:center">PJ</th>
+                                <th style="text-align:center">%</th>
+                                <th style="text-align:center">Pts</th>
+                                <th style="text-align:center">PPJ</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                `;
+                
+                if (equipo.jugadores && equipo.jugadores.length > 0) {
+                    equipo.jugadores.forEach(jugador => {
+                        jugadoresHTML += `
+                            <tr>
+                                <td class="jugador-numero">${jugador.numero}</td>
+                                <td class="jugador-nombre">${jugador.nombre}</td>
+                                <td style="text-align:center">${jugador.partidos_jugados}</td>
+                                <td class="jugador-porcentaje">
+                                    <div class="porcentaje-bar">
+                                        <div class="porcentaje-fill" style="width: ${jugador.porcentaje_partidos}%"></div>
+                                    </div>
+                                    <div class="porcentaje-text">${jugador.porcentaje_partidos}%</div>
+                                </td>
+                                <td class="jugador-puntos">${jugador.total_puntos}</td>
+                                <td style="text-align:center">${jugador.promedio_puntos}</td>
+                            </tr>
+                        `;
+                    });
+                } else {
+                    jugadoresHTML += `
+                        <tr>
+                            <td colspan="6" class="text-center text-muted">No hay jugadores registrados</td>
+                        </tr>
+                    `;
+                }
+                
+                jugadoresHTML += `
+                        </tbody>
+                    </table>
+                `;
+                
+                equipoCard.innerHTML = header + jugadoresHTML;
+                grid.appendChild(equipoCard);
+            });
+            
+            container.appendChild(grid);
+        }
+
+        // ========================================
+        // CARGAR PRÓXIMOS PARTIDOS (Sin cambios)
+        // ========================================
+        function loadProximosPartidos() {
+            const container = document.getElementById('proximos-container');
+            container.innerHTML = '';
+            
+            if (!allData.proximos || allData.proximos.length === 0) {
+                container.innerHTML = '<p class="text-center text-muted">No hay próximos partidos programados</p>';
+                return;
+            }
+            
+            allData.proximos.forEach(partido => {
+                const equipoLocal = allData.equipos.find(e => e.id_equipo == partido.equipo_local_id);
+                const equipoVisitante = allData.equipos.find(e => e.id_equipo == partido.equipo_visitante_id);
+                
+                const matchCard = document.createElement('div');
+                matchCard.className = 'match-card';
+                matchCard.innerHTML = `
+                    <div class="match-date">
+                        <i class="fas fa-calendar-alt me-1"></i>
+                        ${formatDate(partido.fecha)}
+                    </div>
+                    <div class="match-teams">
+                        ${equipoLocal?.nombre_equipo || 'TBD'}
+                        <span class="vs">VS</span>
+                        ${equipoVisitante?.nombre_equipo || 'TBD'}
+                    </div>
+                    ${partido.estatus === 'en_vivo' ? '<span class="badge bg-danger">EN VIVO</span>' : ''}
+                `;
+                container.appendChild(matchCard);
+            });
+        }
+
+        // ========================================
+        // CARGAR LÍDERES ANOTADORES (Sin cambios)
+        // ========================================
+        function loadLideresAnotadores() {
+            const container = document.getElementById('lideres-container');
+            container.innerHTML = '';
+            
+            if (!allData.lideres || allData.lideres.length === 0) {
+                container.innerHTML = '<p class="text-center text-muted">No hay datos disponibles</p>';
+                return;
+            }
+            
+            allData.lideres.forEach((jugador, index) => {
+                const equipo = allData.equipos.find(e => e.id_equipo == jugador.equipo_id);
+                
+                let rankClass = '';
+                if (index === 0) rankClass = 'gold';
+                else if (index === 1) rankClass = 'silver';
+                else if (index === 2) rankClass = 'bronze';
+                
+                const leaderItem = document.createElement('div');
+                leaderItem.className = 'leader-item';
+                leaderItem.innerHTML = `
+                    <div class="leader-rank ${rankClass}">${index + 1}</div>
+                    <div class="leader-info">
+                        <div class="leader-name">${jugador.nombre}</div>
+                        <div class="leader-team">${equipo?.nombre_equipo || 'Sin equipo'}</div>
+                    </div>
+                    <div class="leader-stats">
+                        <div class="leader-points">${jugador.total_puntos}</div>
+                        <div class="leader-avg">${jugador.promedio} PPJ</div>
+                    </div>
+                `;
+                container.appendChild(leaderItem);
+            });
+        }
+
+        // ========================================
+        // CARGAR LÍDERES TRIPLES (Sin cambios)
+        // ========================================
+        function loadLideresTriples() {
+            const container = document.getElementById('lideres-triples-container');
+            container.innerHTML = '';
+            
+            if (!allData.lideres_triples || allData.lideres_triples.length === 0) {
+                container.innerHTML = '<p class="text-center text-muted">No hay datos disponibles</p>';
+                return;
+            }
+            
+            allData.lideres_triples.forEach((jugador, index) => {
+                const equipo = allData.equipos.find(e => e.id_equipo == jugador.equipo_id);
+                
+                let rankClass = '';
+                if (index === 0) rankClass = 'gold';
+                else if (index === 1) rankClass = 'silver';
+                else if (index === 2) rankClass = 'bronze';
+                
+                const leaderItem = document.createElement('div');
+                leaderItem.className = 'leader-item';
+                leaderItem.innerHTML = `
+                    <div class="leader-rank ${rankClass}">${index + 1}</div>
+                    <div class="leader-info">
+                        <div class="leader-name">${jugador.nombre}</div>
+                        <div class="leader-team">${equipo?.nombre_equipo || 'Sin equipo'}</div>
+                    </div>
+                    <div class="leader-stats">
+                        <div class="leader-points">${jugador.total_triples} 🔥</div>
+                        <div class="leader-avg">${jugador.promedio} triples/juego</div>
+                    </div>
+                `;
+                container.appendChild(leaderItem);
+            });
+        }
+
+        // ========================================
+        // CARGAR RESULTADOS (Sin cambios significativos)
+        // ========================================
+        async function loadResultados() {
+            try {
+                const response = await fetch(`${SHEET_API_URL}?action=partidos&liga=${ligaActual}`);
+                const partidos = await response.json();
+                
+                const finalizados = partidos.filter(p => p.estatus === 'finalizado')
+                                        .sort((a, b) => new Date(b.fecha) - new Date(a.fecha))
+                                        .slice(0, 10);
+                
+                const container = document.getElementById('resultados-container');
+                container.innerHTML = '';
+                
+                if (finalizados.length === 0) {
+                    container.innerHTML = '<p class="text-center text-muted">No hay resultados disponibles</p>';
+                    return;
+                }
+                
+                finalizados.forEach(partido => {
+                    const equipoLocal = allData.equipos.find(e => e.id_equipo == partido.equipo_local_id);
+                    const equipoVisitante = allData.equipos.find(e => e.id_equipo == partido.equipo_visitante_id);
+                    
+                    const localGano = partido.puntos_local > partido.puntos_visitante;
+                    
+                    const resultCard = document.createElement('div');
+                    resultCard.className = 'result-card';
+                    resultCard.innerHTML = `
+                        <div class="text-center text-muted mb-2">
+                            <small>Jornada ${partido.jornada} - ${formatDate(partido.fecha)}</small>
+                        </div>
+                        <div class="result-score">
+                            <div class="team-score ${localGano ? 'winner' : ''}">
+                                <div class="name">${equipoLocal?.nombre_equipo || 'TBD'}</div>
+                                <div class="score">${partido.puntos_local}</div>
+                            </div>
+                            <div class="score-divider">-</div>
+                            <div class="team-score ${!localGano ? 'winner' : ''}">
+                                <div class="name">${equipoVisitante?.nombre_equipo || 'TBD'}</div>
+                                <div class="score">${partido.puntos_visitante}</div>
+                            </div>
+                        </div>
+                    `;
+                    container.appendChild(resultCard);
+                });
+                
+            } catch (error) {
+                console.error('Error cargando resultados:', error);
+            }
+        }
+
+        // ========================================
+        // CAMBIAR ENTRE TABS
+        // ========================================
+        function showTab(tabName) {
+            // Ocultar todos los contenidos
+            document.querySelectorAll('.tab-content-container').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Desactivar todos los botones
+            document.querySelectorAll('.stat-tab').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Activar el tab seleccionado
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        // ========================================
+        // FORMATEAR FECHA
+        // ========================================
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            const options = { day: 'numeric', month: 'short', year: 'numeric' };
+            return date.toLocaleDateString('es-MX', options);
+        }
+
+        // ========================================
+        // INICIALIZACIÓN
+        // ========================================
+        document.addEventListener('DOMContentLoaded', async function() {
+            await loadAllData();
+        });
+
+        // Recargar datos cada 5 minutos
+        setInterval(loadAllData, 5 * 60 * 1000);
+    </script>
+</body>
+</html>
