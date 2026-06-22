@@ -3,9 +3,9 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>Estadísticas Liga Veteranos 49+ | MVP UNIVERSE</title>
+    <title>Estadísticas Liga Veteranos | MVP UNIVERSE</title>
     
-    <meta name="description" content="Estadísticas en vivo de la Liga Veteranos 49+ - MVP Universe">
+    <meta name="description" content="Estadísticas en vivo de las Ligas MVP Universe">
     <meta name="keywords" content="estadísticas basketball, liga veteranos, MVP Universe, tabla posiciones">
     
     <!-- Bootstrap CSS -->
@@ -352,47 +352,21 @@
             color: #999;
             font-weight: 300;
         }
-        
-        /* RESPONSIVE */
-        @media (max-width: 768px) {
-            .stats-header h1 {
-                font-size: 1.8rem;
-            }
-            
-            .stat-tab {
-                padding: 10px 15px;
-                font-size: 0.9rem;
-            }
-            
-            .positions-table th,
-            .positions-table td {
-                padding: 8px 5px;
-                font-size: 0.85rem;
-            }
-            
-            .match-card {
-                flex-direction: column;
-                gap: 10px;
-            }
-            
-            .leader-points {
-                font-size: 1.2rem;
-            }
-        }
 
-        /* Selector de Liga */
+        /* Selector de Liga - ACTUALIZADO PARA 3 LIGAS */
         .liga-selector {
             display: flex;
             justify-content: center;
             gap: 15px;
             margin-top: 20px;
+            flex-wrap: wrap;
         }
 
         .liga-btn {
             background: rgba(255,255,255,0.2);
             color: white;
             border: 2px solid rgba(255,255,255,0.3);
-            padding: 12px 30px;
+            padding: 12px 25px;
             border-radius: 25px;
             font-weight: 600;
             font-size: 1rem;
@@ -524,15 +498,41 @@
             color: #666;
             margin-top: 3px;
         }
-
-        /* Responsive */
+        
+        /* RESPONSIVE */
         @media (max-width: 768px) {
+            .stats-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .stat-tab {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+            }
+            
+            .positions-table th,
+            .positions-table td {
+                padding: 8px 5px;
+                font-size: 0.85rem;
+            }
+            
+            .match-card {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .leader-points {
+                font-size: 1.2rem;
+            }
+            
             .liga-selector {
                 flex-direction: column;
+                gap: 10px;
             }
             
             .liga-btn {
                 width: 100%;
+                padding: 15px 20px;
             }
             
             .equipos-grid {
@@ -549,6 +549,529 @@
 </head>
 
 <body>
-    <h1>PÁGINA EN MANTENIMIENTO</h1>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-stats fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="../logos/MVP_LOGO.png" alt="MVP Logo" style="width:50px;" class="rounded-pill">
+                <span class="ms-2">MVP UNIVERSE</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">
+                            <i class="fas fa-home me-1"></i>Inicio
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HEADER -->
+    <div class="stats-header">
+        <div class="container">
+            <h1>
+                <i class="fas fa-trophy me-2"></i>
+                <span id="liga-title">Liga Veteranos 49+</span>
+            </h1>
+            <p class="subtitle">Temporada 2026 - Estadísticas en vivo</p>
+            
+            <!-- ACTUALIZADO: Selector de Liga con 3 opciones -->
+            <div class="liga-selector">
+                <button class="liga-btn active" onclick="cambiarLiga('49')" id="btn-liga-49">
+                    <i class="fas fa-users me-2"></i>Veteranos 49+
+                </button>
+                <button class="liga-btn" onclick="cambiarLiga('39')" id="btn-liga-39">
+                    <i class="fas fa-users me-2"></i>Veteranos 39+
+                </button>
+                <button class="liga-btn" onclick="cambiarLiga('libre')" id="btn-liga-libre">
+                    <i class="fas fa-basketball-ball me-2"></i>Liga Libre
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <div class="container">
+        <!-- TABS -->   
+        <div class="stats-tabs">
+            <button class="stat-tab active" onclick="showTab('tabla')">
+                <i class="fas fa-list-ol me-2"></i>Tabla
+            </button>
+            <button class="stat-tab" onclick="showTab('resultados')">
+                <i class="fas fa-basketball-ball me-2"></i>Resultados
+            </button>
+            <button class="stat-tab" onclick="showTab('proximos')">
+                <i class="fas fa-calendar me-2"></i>Próximos
+            </button>
+            <button class="stat-tab" onclick="showTab('equipos')">
+                <i class="fas fa-users me-2"></i>Equipos
+            </button>
+            <button class="stat-tab" onclick="showTab('lideres')">
+                <i class="fas fa-star me-2"></i>Líderes
+            </button>
+            <button class="stat-tab" onclick="showTab('lideres-triples')">
+                <i class="fas fa-fire me-2"></i>Triples
+            </button>
+        </div>
+
+        <!-- LOADING -->
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+            <p>Cargando estadísticas...</p>
+        </div>
+
+        <!-- TABLA DE POSICIONES -->
+        <div id="tabla" class="tab-content-container active">
+            <div class="stat-card">
+                <h3><i class="fas fa-trophy me-2"></i>Tabla de Posiciones</h3>
+                <div class="positions-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Posición</th>
+                                <th>Equipo</th>
+                                <th>PJ</th>
+                                <th>PG</th>
+                                <th>PP</th>
+                                <th>PF</th>
+                                <th>PC</th>
+                                <th>Dif</th>
+                                <th>Pts</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabla-body">
+                            <!-- Se llena con JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- RESULTADOS -->
+        <div id="resultados" class="tab-content-container">
+            <div class="stat-card">
+                <h3><i class="fas fa-basketball-ball me-2"></i>Resultados Recientes</h3>
+                <div id="resultados-container">
+                    <!-- Se llena con JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- PRÓXIMOS PARTIDOS -->
+        <div id="proximos" class="tab-content-container">
+            <div class="stat-card">
+                <h3><i class="fas fa-calendar me-2"></i>Próximos Partidos</h3>
+                <div id="proximos-container">
+                    <!-- Se llena con JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- LÍDERES ANOTADORES -->
+        <div id="lideres" class="tab-content-container">
+            <div class="stat-card">
+                <h3><i class="fas fa-star me-2"></i>Líderes Anotadores</h3>
+                <div id="lideres-container">
+                    <!-- Se llena con JavaScript -->
+                </div>
+            </div>
+        </div>
+        
+        <div id="lideres-triples" class="tab-content-container">
+            <div class="stat-card">
+                <h3><i class="fas fa-fire me-2"></i>Líderes en Triples</h3>
+                <div id="lideres-triples-container"></div>
+            </div>
+        </div>
+
+        <!-- EQUIPOS CON JUGADORES -->
+        <div id="equipos" class="tab-content-container">
+            <div class="stat-card">
+                <h3><i class="fas fa-users me-2"></i>Equipos y Plantillas</h3>
+                <div id="equipos-container">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br><br>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // ========================================
+        // CONFIGURACIÓN
+        // ========================================
+        const SHEET_API_URL = 'https://script.google.com/macros/s/AKfycby60Iecdu3t_kNpF8DN6EmGuiA1SKWwbfTDUHJ8lYm2s6idDJkOhFzWSb_bd9Alvl1Yhw/exec';
+        let ligaActual = '49'; // Por defecto liga 49+
+
+        // ========================================
+        // ACTUALIZADO: CAMBIAR LIGA (Soporta 3 ligas)
+        // ========================================
+        function cambiarLiga(liga) {
+            ligaActual = liga;
+            
+            // Actualizar botones
+            document.querySelectorAll('.liga-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.getElementById(`btn-liga-${liga}`).classList.add('active');
+            
+            // Actualizar título según la liga
+            const titulos = {
+                '49': 'Liga Veteranos 49+',
+                '39': 'Liga Veteranos 39+',
+                'libre': 'Liga Libre'
+            };
+            
+            document.getElementById('liga-title').textContent = titulos[liga] || 'MVP Universe';
+            
+            // Recargar datos
+            loadAllData();
+        }
+
+        // ========================================
+        // CARGAR TODOS LOS DATOS
+        // ========================================
+        async function loadAllData() {
+            try {
+                document.getElementById('loading').style.display = 'block';
+                
+                const response = await fetch(`${SHEET_API_URL}?action=all&liga=${ligaActual}`);
+                allData = await response.json();
+                
+                console.log('Datos cargados:', allData);
+                
+                // Ocultar loading
+                document.getElementById('loading').style.display = 'none';
+                
+                // Cargar todas las vistas
+                loadTablaPosiciones();
+                loadProximosPartidos();
+                loadLideresAnotadores();
+                loadLideresTriples();
+                loadEquipos();
+                loadResultados();
+                
+            } catch (error) {
+                console.error('Error cargando datos:', error);
+                document.getElementById('loading').innerHTML = `
+                    <div class="alert alert-danger">
+                        <i class="fas fa-exclamation-triangle me-2"></i>
+                        Error al cargar los datos. Por favor verifica la configuración.
+                    </div>
+                `;
+            }
+        }
+
+        // ========================================
+        // CARGAR TABLA DE POSICIONES
+        // ========================================
+        function loadTablaPosiciones() {
+            const tbody = document.getElementById('tabla-body');
+            tbody.innerHTML = '';
+            
+            if (!allData.tabla || allData.tabla.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="9" class="text-center">No hay datos disponibles</td></tr>';
+                return;
+            }
+            
+            allData.tabla.forEach((equipo, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td class="pos">${index + 1}</td>
+                    <td class="team-name">${equipo.equipo}</td>
+                    <td>${equipo.pj}</td>
+                    <td>${equipo.pg}</td>
+                    <td>${equipo.pp}</td>
+                    <td>${equipo.pf}</td>
+                    <td>${equipo.pc}</td>
+                    <td>${equipo.dif > 0 ? '+' : ''}${equipo.dif}</td>
+                    <td><strong>${equipo.puntos}</strong></td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        // ========================================
+        // CARGAR EQUIPOS
+        // ========================================
+        function loadEquipos() {
+            const container = document.getElementById('equipos-container');
+            container.innerHTML = '';
+            
+            if (!allData.equipos_detalle || allData.equipos_detalle.length === 0) {
+                container.innerHTML = '<p class="text-center text-muted">No hay datos de equipos disponibles</p>';
+                return;
+            }
+            
+            const grid = document.createElement('div');
+            grid.className = 'equipos-grid';
+            
+            allData.equipos_detalle.forEach(equipo => {
+                const equipoCard = document.createElement('div');
+                equipoCard.className = 'equipo-card';
+                
+                const header = `
+                    <div class="equipo-header">
+                        <h4 class="equipo-nombre">${equipo.nombre_equipo}</h4>
+                        <p class="equipo-total">${equipo.total_jugadores} jugadores</p>
+                    </div>
+                `;
+                
+                let jugadoresHTML = `
+                    <table class="jugadores-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Jugador</th>
+                                <th style="text-align:center">PJ</th>
+                                <th style="text-align:center">%</th>
+                                <th style="text-align:center">Pts</th>
+                                <th style="text-align:center">PPJ</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                `;
+                
+                if (equipo.jugadores && equipo.jugadores.length > 0) {
+                    equipo.jugadores.forEach(jugador => {
+                        jugadoresHTML += `
+                            <tr>
+                                <td class="jugador-numero">${jugador.numero}</td>
+                                <td class="jugador-nombre">${jugador.nombre}</td>
+                                <td style="text-align:center">${jugador.partidos_jugados}</td>
+                                <td class="jugador-porcentaje">
+                                    <div class="porcentaje-bar">
+                                        <div class="porcentaje-fill" style="width: ${jugador.porcentaje_partidos}%"></div>
+                                    </div>
+                                    <div class="porcentaje-text">${jugador.porcentaje_partidos}%</div>
+                                </td>
+                                <td class="jugador-puntos">${jugador.total_puntos}</td>
+                                <td style="text-align:center">${jugador.promedio_puntos}</td>
+                            </tr>
+                        `;
+                    });
+                } else {
+                    jugadoresHTML += `
+                        <tr>
+                            <td colspan="6" class="text-center text-muted">No hay jugadores registrados</td>
+                        </tr>
+                    `;
+                }
+                
+                jugadoresHTML += `
+                        </tbody>
+                    </table>
+                `;
+                
+                equipoCard.innerHTML = header + jugadoresHTML;
+                grid.appendChild(equipoCard);
+            });
+            
+            container.appendChild(grid);
+        }
+
+        // ========================================
+        // CARGAR PRÓXIMOS PARTIDOS
+        // ========================================
+        function loadProximosPartidos() {
+            const container = document.getElementById('proximos-container');
+            container.innerHTML = '';
+            
+            if (!allData.proximos || allData.proximos.length === 0) {
+                container.innerHTML = '<p class="text-center text-muted">No hay próximos partidos programados</p>';
+                return;
+            }
+            
+            allData.proximos.forEach(partido => {
+                const equipoLocal = allData.equipos.find(e => e.id_equipo == partido.equipo_local_id);
+                const equipoVisitante = allData.equipos.find(e => e.id_equipo == partido.equipo_visitante_id);
+                
+                const matchCard = document.createElement('div');
+                matchCard.className = 'match-card';
+                matchCard.innerHTML = `
+                    <div class="match-date">
+                        <i class="fas fa-calendar-alt me-1"></i>
+                        ${formatDate(partido.fecha)}
+                    </div>
+                    <div class="match-teams">
+                        ${equipoLocal?.nombre_equipo || 'TBD'}
+                        <span class="vs">VS</span>
+                        ${equipoVisitante?.nombre_equipo || 'TBD'}
+                    </div>
+                    ${partido.estatus === 'en_vivo' ? '<span class="badge bg-danger">EN VIVO</span>' : ''}
+                `;
+                container.appendChild(matchCard);
+            });
+        }
+
+        // ========================================
+        // CARGAR LÍDERES ANOTADORES
+        // ========================================
+        function loadLideresAnotadores() {
+            const container = document.getElementById('lideres-container');
+            container.innerHTML = '';
+            
+            if (!allData.lideres || allData.lideres.length === 0) {
+                container.innerHTML = '<p class="text-center text-muted">No hay datos disponibles</p>';
+                return;
+            }
+            
+            allData.lideres.forEach((jugador, index) => {
+                const equipo = allData.equipos.find(e => e.id_equipo == jugador.equipo_id);
+                
+                let rankClass = '';
+                if (index === 0) rankClass = 'gold';
+                else if (index === 1) rankClass = 'silver';
+                else if (index === 2) rankClass = 'bronze';
+                
+                const leaderItem = document.createElement('div');
+                leaderItem.className = 'leader-item';
+                leaderItem.innerHTML = `
+                    <div class="leader-rank ${rankClass}">${index + 1}</div>
+                    <div class="leader-info">
+                        <div class="leader-name">${jugador.nombre}</div>
+                        <div class="leader-team">${equipo?.nombre_equipo || 'Sin equipo'}</div>
+                    </div>
+                    <div class="leader-stats">
+                        <div class="leader-points">${jugador.total_puntos}</div>
+                        <div class="leader-avg">${jugador.promedio} PPJ</div>
+                    </div>
+                `;
+                container.appendChild(leaderItem);
+            });
+        }
+
+        // ========================================
+        // CARGAR LÍDERES TRIPLES
+        // ========================================
+        function loadLideresTriples() {
+            const container = document.getElementById('lideres-triples-container');
+            container.innerHTML = '';
+            
+            if (!allData.lideres_triples || allData.lideres_triples.length === 0) {
+                container.innerHTML = '<p class="text-center text-muted">No hay datos disponibles</p>';
+                return;
+            }
+            
+            allData.lideres_triples.forEach((jugador, index) => {
+                const equipo = allData.equipos.find(e => e.id_equipo == jugador.equipo_id);
+                
+                let rankClass = '';
+                if (index === 0) rankClass = 'gold';
+                else if (index === 1) rankClass = 'silver';
+                else if (index === 2) rankClass = 'bronze';
+                
+                const leaderItem = document.createElement('div');
+                leaderItem.className = 'leader-item';
+                leaderItem.innerHTML = `
+                    <div class="leader-rank ${rankClass}">${index + 1}</div>
+                    <div class="leader-info">
+                        <div class="leader-name">${jugador.nombre}</div>
+                        <div class="leader-team">${equipo?.nombre_equipo || 'Sin equipo'}</div>
+                    </div>
+                    <div class="leader-stats">
+                        <div class="leader-points">${jugador.total_triples} 🔥</div>
+                        <div class="leader-avg">${jugador.promedio} triples/juego</div>
+                    </div>
+                `;
+                container.appendChild(leaderItem);
+            });
+        }
+
+        // ========================================
+        // CARGAR RESULTADOS
+        // ========================================
+        async function loadResultados() {
+            try {
+                const response = await fetch(`${SHEET_API_URL}?action=partidos&liga=${ligaActual}`);
+                const partidos = await response.json();
+                
+                const finalizados = partidos.filter(p => p.estatus === 'finalizado')
+                                        .sort((a, b) => new Date(b.fecha) - new Date(a.fecha))
+                                        .slice(0, 10);
+                
+                const container = document.getElementById('resultados-container');
+                container.innerHTML = '';
+                
+                if (finalizados.length === 0) {
+                    container.innerHTML = '<p class="text-center text-muted">No hay resultados disponibles</p>';
+                    return;
+                }
+                
+                finalizados.forEach(partido => {
+                    const equipoLocal = allData.equipos.find(e => e.id_equipo == partido.equipo_local_id);
+                    const equipoVisitante = allData.equipos.find(e => e.id_equipo == partido.equipo_visitante_id);
+                    
+                    const localGano = partido.puntos_local > partido.puntos_visitante;
+                    
+                    const resultCard = document.createElement('div');
+                    resultCard.className = 'result-card';
+                    resultCard.innerHTML = `
+                        <div class="text-center text-muted mb-2">
+                            <small>Jornada ${partido.jornada} - ${formatDate(partido.fecha)}</small>
+                        </div>
+                        <div class="result-score">
+                            <div class="team-score ${localGano ? 'winner' : ''}">
+                                <div class="name">${equipoLocal?.nombre_equipo || 'TBD'}</div>
+                                <div class="score">${partido.puntos_local}</div>
+                            </div>
+                            <div class="score-divider">-</div>
+                            <div class="team-score ${!localGano ? 'winner' : ''}">
+                                <div class="name">${equipoVisitante?.nombre_equipo || 'TBD'}</div>
+                                <div class="score">${partido.puntos_visitante}</div>
+                            </div>
+                        </div>
+                    `;
+                    container.appendChild(resultCard);
+                });
+                
+            } catch (error) {
+                console.error('Error cargando resultados:', error);
+            }
+        }
+
+        // ========================================
+        // CAMBIAR ENTRE TABS
+        // ========================================
+        function showTab(tabName) {
+            document.querySelectorAll('.tab-content-container').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            document.querySelectorAll('.stat-tab').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        // ========================================
+        // FORMATEAR FECHA
+        // ========================================
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            const options = { day: 'numeric', month: 'short', year: 'numeric' };
+            return date.toLocaleDateString('es-MX', options);
+        }
+
+        // ========================================
+        // INICIALIZACIÓN
+        // ========================================
+        document.addEventListener('DOMContentLoaded', async function() {
+            await loadAllData();
+        });
+
+        // Recargar datos cada 5 minutos
+        setInterval(loadAllData, 5 * 60 * 1000);
+    </script>
 </body>
 </html>
